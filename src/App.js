@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Header from './Header.js';
+import Uploader from  './Uploader.js';
 
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header>
-        </Header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [mode, setMode] = useState("upload");
+
+  return (
+    <div>
+      <Header mode={mode} onChangeMode={setMode} />
+      <Uploader />
+    </div>
+  );
+};
 
 export default App;

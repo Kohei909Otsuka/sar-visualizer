@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { solarized } from './constant.js';
 
 const StyledHeader = styled.div`
-  position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
 `;
 
 const LinkWrapper = styled.div`
@@ -27,20 +27,20 @@ const HeaderLink = styled.button`
 `
 
 const Header = (props) => {
-  const [tab, setTab] = useState("upload");
+  const { mode, onChangeMode } = props;
 
   return (
     <StyledHeader>
       <LinkWrapper>
         <HeaderLink
-          active={tab === "upload"}
-          onClick={() => setTab("upload")}
+          active={mode === "upload"}
+          onClick={() => onChangeMode("upload")}
         >
           Upload
         </HeaderLink>
         <HeaderLink
-          active={tab === "history"}
-          onClick={() => setTab("history")}
+          active={mode === "history"}
+          onClick={() => onChangeMode("history")}
         >
           History
         </HeaderLink>
