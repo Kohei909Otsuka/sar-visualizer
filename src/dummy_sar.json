@@ -1,0 +1,33 @@
+{"sysstat": {
+	"sysdata-version": 2.16,
+	"hosts": [
+		{
+			"nodename": "centos-s-2vcpu-4gb-sgp1-01",
+			"sysname": "Linux",
+			"release": "3.10.0-693.17.1.el7.x86_64",
+			"machine": "x86_64",
+			"number-of-cpus": 2,
+			"file-date": "2019-02-09",
+			"statistics": [
+				{
+					"timestamp": {"date": "2019-02-09", "time": "07:59:21", "utc": 0, "interval": 5},
+					"cpu-load": [
+						{"cpu": "all", "user": 1.00, "nice": 2.00, "system": 3.00, "iowait": 4.00, "steal": 5.00, "idle": 100.00},
+						{"cpu": "0", "user": 0.00, "nice": 0.00, "system": 0.00, "iowait": 0.00, "steal": 0.00, "idle": 100.00},
+						{"cpu": "1", "user": 0.00, "nice": 0.00, "system": 0.00, "iowait": 0.00, "steal": 0.00, "idle": 100.00}
+					]
+				},
+				{
+					"timestamp": {"date": "2019-02-09", "time": "07:59:26", "utc": 0, "interval": 5},
+					"cpu-load": [
+						{"cpu": "all", "user": 1.10, "nice": 2.20, "system": 3.30, "iowait": 4.40, "steal": 5.50, "idle": 100.00},
+						{"cpu": "0", "user": 0.00, "nice": 0.00, "system": 0.20, "iowait": 0.00, "steal": 0.00, "idle": 99.80},
+						{"cpu": "1", "user": 0.00, "nice": 0.00, "system": 0.00, "iowait": 0.00, "steal": 0.00, "idle": 100.00}
+					]
+				}
+			],
+			"restarts": [
+			]
+		}
+	]
+}}
