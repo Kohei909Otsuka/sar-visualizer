@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Dropzone from 'react-dropzone';
 import { solarized } from './constant';
+import jsonFileParser from './jsonFileParser';
 
 const Wrapper = styled.div`
   // ここはそとでいいのでは?
@@ -19,16 +20,32 @@ const Wrapper = styled.div`
   font-size: 2.0em;
 `;
 
-const Uploader = () => {
+// TODO: move idGetn to data strage module
+const idGen = () => {
+  const now = new Date()
+  return now.getTime().toString(16) +
+    Math.floor(10000 * Math.random()).toString(16)
+};
+
+const Uploader = (props) => {
+  const { setMode, setStat } = props;
+
   const handleFileAccepted = (files) => {
     console.log('success file', files);
     const reader = new FileReader();
     reader.onload = () => {
       const text = reader.result;
-      console.log('loaded file content', text)
+      const stat = jsonFileParser(text, idGen);
+      console.log('loaded file content', stat);
+
+      // 1. update state of app
+      setStat(stat);
+      setMode("visualize");
+      // 2. save to indexexDB
     };
     reader.readAsText(files[0]);
   };
+
   const handleFileRejected = (file) => {
     console.log('fail file', file);
   };

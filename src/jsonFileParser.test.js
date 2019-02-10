@@ -8,6 +8,7 @@ it('returns expected object', () => {
 
   const input = file.toString();
   const expected = {
+    id: "uid",
     nodename: 'centos-s-2vcpu-4gb-sgp1-01',
     sysname: 'Linux',
     release: '3.10.0-693.17.1.el7.x86_64',
@@ -37,6 +38,7 @@ it('returns expected object', () => {
       ]
     }
   };
+  const mockIdGen = jest.fn(() => "uid")
 
-  expect(jsonFileParser(input)).toEqual(expected);
+  expect(jsonFileParser(input, mockIdGen)).toEqual(expected);
 })

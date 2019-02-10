@@ -1,8 +1,9 @@
-const jsonFileParser = (jsonString) => {
+const jsonFileParser = (jsonString, idGen) => {
   const original = JSON.parse(jsonString)
   const firstHost = original.sysstat.hosts[0];
 
   const metaData = {
+    id: idGen(),
     nodename: firstHost.nodename,
     sysname: firstHost.sysname,
     release: firstHost.release,
