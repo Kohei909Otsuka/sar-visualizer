@@ -5,9 +5,6 @@ import { solarized } from './../utils/constant.js';
 import jsonFileParser from './../libs/jsonFileParser';
 
 const Wrapper = styled.div`
-  // ここはそとでいいのでは?
-  margin: 0px 10px;
-
   height: 70vh;
   border-width: 2px;
   border-radius: 5px;

@@ -11,11 +11,8 @@ export const createStat = (stat) => {
 };
 
 export const fetchStats = () => {
-  db.table(TABLE)
+  return db.table(TABLE)
     .toArray()
-    .then(stats => {
-      console.log('listed from indexedDB', stats);
-    })
 };
 
 export const fetchStat = (id) => {
