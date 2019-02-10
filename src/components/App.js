@@ -8,6 +8,7 @@ import {
   createStat,
   fetchStats,
   fetchStat,
+  deleteStat,
 } from './../libs/usecase';
 
 
@@ -50,6 +51,13 @@ const App = () => {
       })
   };
 
+  const onDeleteStat = (id) => {
+    deleteStat(id)
+      .then(() => {
+        setStats(stats.filter(stat => stat.id !== id));
+      })
+  }
+
   // this app is simple enough to not use routing
   let body;
   const renderBody = () => {
@@ -64,7 +72,11 @@ const App = () => {
       );
     } else if (mode === "history") {
       body = (
-        <History stats={stats} onClickStat={onSelectStat}/>
+        <History
+          stats={stats}
+          onClickStat={onSelectStat}
+          onDeleteStat={onDeleteStat}
+        />
       );
     } else if (mode === "visualize" && Object.keys(stat).length > 0) {
       body = (

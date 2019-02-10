@@ -35,7 +35,7 @@ const TableBodyCell = styled.td`
 `;
 
 const History = (props) => {
-  const { stats, onClickStat } = props;
+  const { stats, onClickStat, onDeleteStat } = props;
 
   const renderItems = (stat) => {
     const onRawClick = () => (onClickStat(stat.id));
@@ -47,7 +47,7 @@ const History = (props) => {
         <TableBodyCell onClick={onRawClick}>{stat.machine}</TableBodyCell>
         <TableBodyCell onClick={onRawClick}>{stat.number_of_cpus}</TableBodyCell>
         <TableBodyCell>
-          <FontAwesomeIcon icon={faTrash} />
+          <FontAwesomeIcon icon={faTrash} onClick={() => onDeleteStat(stat.id)}/>
         </TableBodyCell>
       </TableBodyRaw>
     );

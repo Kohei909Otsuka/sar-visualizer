@@ -12,10 +12,15 @@ export const createStat = (stat) => {
 
 export const fetchStats = () => {
   return db.table(TABLE)
-    .toArray()
+    .toArray();
 };
 
 export const fetchStat = (id) => {
   return db.table(TABLE)
-    .get(id)
+    .get(id);
+};
+
+export const deleteStat = (id) => {
+  return db.table(TABLE)
+    .delete(id);
 };
