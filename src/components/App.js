@@ -82,7 +82,16 @@ const App = () => {
     } else if (mode === "visualize" && Object.keys(stat).length > 0) {
       body = (
         <GraphWrapper>
-          <Graph data={stat.statistics.cpu} />
+          <Graph
+            title="CPU"
+            data={stat.statistics.cpu}
+            kinds={['user', 'nice', 'system', 'iowait', 'steal', 'idle']}
+          />
+          <Graph
+            title="Memory"
+            data={stat.statistics.memory}
+            kinds={['free', 'used', 'used_percent', 'buffers', 'cached']}
+          />
         </GraphWrapper>
       );
     }

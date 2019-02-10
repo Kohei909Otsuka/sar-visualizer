@@ -10,7 +10,6 @@ import {
 } from 'recharts';
 import { solarized } from './../utils/constant.js';
 
-const cpuKinds = ['user', 'nice', 'system', 'iowait', 'steal', 'idle']
 const colors = [
   solarized.yellow,
   solarized.orange,
@@ -28,7 +27,8 @@ const Title = styled.p`
 `;
 
 const Graph = (props) => {
-  const [activeKeys, setActiveKeys] = useState(cpuKinds);
+  const { data, kinds, title } = props;
+  const [activeKeys, setActiveKeys] = useState(kinds);
 
   const toggleKey = (key) => {
     if (activeKeys.includes(key)) {
@@ -36,21 +36,18 @@ const Graph = (props) => {
     } else {
       setActiveKeys(activeKeys.concat([key]))
     }
-  }
-
-  const { data } = props;
+  };
 
   return (
     <div>
-      <Title>CPU</Title>
+      <Title>{title}</Title>
       <LineChart width={1200} height={300} data={data}>
         <XAxis dataKey="timestamp"/>
         <YAxis/>
         <Tooltip/>
-        <p>here we go</p>
         <Legend onClick={e => toggleKey(e.dataKey)}/>
         {
-          cpuKinds.map((kind,i) => {
+          kinds.map((kind,i) => {
             const color = activeKeys.includes(kind) ?
               colors[(i+1)%colors.length] : 'transparent';
             return (
