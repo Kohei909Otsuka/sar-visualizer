@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import Header from './Header.js';
-import Uploader from  './Uploader.js';
-import Graph from './Graph.js'
+import Header from './Header';
+import Uploader from  './Uploader';
+import Graph from './Graph'
+import {
+  createStat,
+  fetchStats,
+  fetchStat,
+} from './../libs/usecase';
 
 
 const App = () => {
@@ -19,7 +24,11 @@ const App = () => {
     if (mode === "upload") {
       return (
         <div>
-          <Uploader setMode={setMode} setStat={setStat} />
+          <Uploader
+            setMode={setMode}
+            setStat={setStat}
+            saveStat={createStat}
+          />
         </div>
       );
     } else if (mode === "history") {

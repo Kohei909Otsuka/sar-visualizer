@@ -28,7 +28,7 @@ const idGen = () => {
 };
 
 const Uploader = (props) => {
-  const { setMode, setStat } = props;
+  const { setMode, setStat, saveStat } = props;
 
   const handleFileAccepted = (files) => {
     console.log('success file', files);
@@ -42,6 +42,7 @@ const Uploader = (props) => {
       setStat(stat);
       setMode("visualize");
       // 2. save to indexexDB
+      saveStat(stat);
     };
     reader.readAsText(files[0]);
   };
