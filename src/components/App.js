@@ -36,6 +36,14 @@ const App = () => {
       )
   })
 
+  const onSelectStat = (id) => {
+    fetchStat(id)
+      .then(stat => {
+        setStat(stat);
+        setMode("visualize");
+      })
+  };
+
   // this app is simple enough to not use routing
   let body;
   const renderBody = () => {
@@ -50,7 +58,7 @@ const App = () => {
       );
     } else if (mode === "history") {
       body = (
-        <History stats={stats}/>
+        <History stats={stats} onClickStat={onSelectStat}/>
       );
     } else if (mode === "visualize" && Object.keys(stat).length > 0) {
       body = (

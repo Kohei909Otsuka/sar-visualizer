@@ -35,19 +35,23 @@ const TableBodyCell = styled.td`
 `;
 
 const History = (props) => {
-  const { stats } = props;
-  const renderItems = (stat) => (
-    <TableBodyRaw key={stat.id} onClick={() => console.log('row clicked', stat.id)}>
-      <TableBodyCell>{stat.file_date}</TableBodyCell>
-      <TableBodyCell>some file name</TableBodyCell>
-      <TableBodyCell>{stat.sysname}</TableBodyCell>
-      <TableBodyCell>{stat.machine}</TableBodyCell>
-      <TableBodyCell>{stat.number_of_cpus}</TableBodyCell>
-      <TableBodyCell>
-        <FontAwesomeIcon icon={faTrash} />
-      </TableBodyCell>
-    </TableBodyRaw>
-  );
+  const { stats, onClickStat } = props;
+
+  const renderItems = (stat) => {
+    const onRawClick = () => (onClickStat(stat.id));
+    return (
+      <TableBodyRaw key={stat.id}>
+        <TableBodyCell onClick={onRawClick}>{stat.file_date}</TableBodyCell>
+        <TableBodyCell onClick={onRawClick}>some file name</TableBodyCell>
+        <TableBodyCell onClick={onRawClick}>{stat.sysname}</TableBodyCell>
+        <TableBodyCell onClick={onRawClick}>{stat.machine}</TableBodyCell>
+        <TableBodyCell onClick={onRawClick}>{stat.number_of_cpus}</TableBodyCell>
+        <TableBodyCell>
+          <FontAwesomeIcon icon={faTrash} />
+        </TableBodyCell>
+      </TableBodyRaw>
+    );
+  };
 
   return (
     <Table>

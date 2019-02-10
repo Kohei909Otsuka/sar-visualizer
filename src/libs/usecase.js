@@ -16,9 +16,6 @@ export const fetchStats = () => {
 };
 
 export const fetchStat = (id) => {
-  db.table(TABLE)
+  return db.table(TABLE)
     .get(id)
-    .then(stat => {
-      console.log('fetch one from indexedDB', stat);
-    })
 };
