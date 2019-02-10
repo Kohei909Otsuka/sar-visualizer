@@ -15,6 +15,12 @@ const StyledBody = styled.div`
   margin: 30px 10px;
 `;
 
+const GraphWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const App = () => {
   const [mode, setMode] = useState("upload");
   const [stat, setStat] = useState({});
@@ -62,7 +68,9 @@ const App = () => {
       );
     } else if (mode === "visualize" && Object.keys(stat).length > 0) {
       body = (
-        <Graph data={stat.statistics.cpu} />
+        <GraphWrapper>
+          <Graph data={stat.statistics.cpu} />
+        </GraphWrapper>
       );
     }
 
