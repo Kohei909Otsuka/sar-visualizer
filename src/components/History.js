@@ -42,7 +42,7 @@ const History = (props) => {
     return (
       <TableBodyRaw key={stat.id}>
         <TableBodyCell onClick={onRawClick}>{stat.file_date}</TableBodyCell>
-        <TableBodyCell onClick={onRawClick}>some file name</TableBodyCell>
+        <TableBodyCell onClick={onRawClick}>{stat.file}</TableBodyCell>
         <TableBodyCell onClick={onRawClick}>{stat.sysname}</TableBodyCell>
         <TableBodyCell onClick={onRawClick}>{stat.machine}</TableBodyCell>
         <TableBodyCell onClick={onRawClick}>{stat.number_of_cpus}</TableBodyCell>

@@ -32,8 +32,10 @@ const Uploader = (props) => {
     const reader = new FileReader();
     reader.onload = () => {
       const text = reader.result;
-      const stat = jsonFileParser(text, idGen);
+      let stat = jsonFileParser(text, idGen);
+      stat.file = files[0].name;
       console.log('loaded file content', stat);
+      console.log('loaded file object', files[0]);
 
       // 1. update state of app
       setStat(stat);

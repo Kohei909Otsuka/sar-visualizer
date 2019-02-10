@@ -39,6 +39,7 @@ const App = () => {
           machine: stat.machine,
           number_of_cpus: stat.number_of_cpus,
           file_date: stat.file_date,
+          file: stat.file,
         })))
       )
   })

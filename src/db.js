@@ -34,6 +34,7 @@ db.on('populate', () =>{
     machine: 'x86_64',
     number_of_cpus: 1,
     file_date: '2019-02-09',
+    file: 'cpu_test.json',
     statistics: {
       cpu: seedCpus(50)
     }
@@ -46,6 +47,7 @@ db.on('populate', () =>{
     machine: 'x86_64',
     number_of_cpus: 2,
     file_date: '2019-02-10',
+    file: 'cpu_test2.json',
     statistics: {
       cpu: seedCpus(50)
     }
@@ -58,6 +60,7 @@ db.on('populate', () =>{
     machine: 'x86_64',
     number_of_cpus: 2,
     file_date: '2019-02-11',
+    file: 'cpu_test3.json',
     statistics: {
       cpu: seedCpus(50)
     }
