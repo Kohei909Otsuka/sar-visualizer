@@ -15,15 +15,15 @@ const jsonFileParser = (jsonString, idGen) => {
   let statistics = {};
 
   const cpus = firstHost.statistics.filter(obj => (
-    Object.keys(obj).includes('cpu-load')
+    Object.keys(obj).includes('cpu-load-all')
   )).map(cpu => ({
     timestamp: cpu.timestamp.date + ' ' + cpu.timestamp.time,
-    user: cpu['cpu-load'][0].user,
-    nice: cpu['cpu-load'][0].nice,
-    system: cpu['cpu-load'][0].system,
-    iowait: cpu['cpu-load'][0].iowait,
-    steal: cpu['cpu-load'][0].steal,
-    idle: cpu['cpu-load'][0].idle,
+    user: cpu['cpu-load-all'][0].usr,
+    nice: cpu['cpu-load-all'][0].nice,
+    system: cpu['cpu-load-all'][0].sys,
+    iowait: cpu['cpu-load-all'][0].iowait,
+    steal: cpu['cpu-load-all'][0].steal,
+    idle: cpu['cpu-load-all'][0].idle,
   }));
 
   statistics.cpu = cpus;
