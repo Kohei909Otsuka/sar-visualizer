@@ -12,22 +12,46 @@ const jsonFileParser = (jsonString, idGen) => {
     file_date: firstHost['file-date'],
   };
 
-  let statistics = {};
+  const statistics = {cpu: [], memory: []};
 
-  const cpus = firstHost.statistics.filter(obj => (
-    Object.keys(obj).includes('cpu-load-all')
-  )).map(cpu => ({
-    timestamp: cpu.timestamp.date + ' ' + cpu.timestamp.time,
-    user: cpu['cpu-load-all'][0].usr,
-    nice: cpu['cpu-load-all'][0].nice,
-    system: cpu['cpu-load-all'][0].sys,
-    iowait: cpu['cpu-load-all'][0].iowait,
-    steal: cpu['cpu-load-all'][0].steal,
-    idle: cpu['cpu-load-all'][0].idle,
-  }));
+  firstHost.statistics.forEach(stat => {
+    statistics.cpu.push(convertCpu(stat));
+    statistics.memory.push(convertMem(stat));
+  });
 
-  statistics.cpu = cpus;
   return Object.assign({}, metaData, { statistics });
+};
+
+const formatTime = (src) => (
+  src.timestamp.date + ' ' + src.timestamp.time
+);
+const convertCpu = (src) => {
+  const cpu = src['cpu-load-all'][0];
+  return {
+    timestamp: formatTime(src),
+    user: cpu.usr,
+    nice: cpu.nice,
+    system: cpu.sys,
+    iowait: cpu.iowait,
+    steal: cpu.steal,
+    idle: cpu.idle,
+  };
+};
+
+const convertMem = (src) => {
+  const mem = src.memory;
+  return {
+    timestamp: formatTime(src),
+    free: Math.floor(KbToMb(mem.memfree)),
+    used: Math.floor(KbToMb(mem.memused)),
+    used_percent: mem['memused-percent'],
+    buffers: Math.floor(KbToMb(mem.buffers)),
+    cached: Math.floor(KbToMb(mem.cached)),
+  };
+};
+
+const KbToMb = (kb) => {
+  return (kb / 1000);
 };
 
 export default jsonFileParser;

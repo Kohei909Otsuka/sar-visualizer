@@ -35,6 +35,24 @@ it('returns expected object', () => {
           steal: 5.50,
           idle: 100.00,
         },
+      ],
+      memory: [
+        {
+          timestamp: '2019-02-09 07:59:21',
+          free: 3017,
+          used: 864,
+          used_percent: 22.27,
+          buffers: 2,
+          cached: 658,
+        },
+        {
+          timestamp: '2019-02-09 07:59:26',
+          free: 4017,
+          used: 964,
+          used_percent: 32.27,
+          buffers: 3,
+          cached: 758,
+        },
       ]
     }
   };

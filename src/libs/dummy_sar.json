@@ -21,7 +21,7 @@
 					"cpu-load-all": [
 						{"cpu": "all", "usr": 1.10, "nice": 2.20, "sys": 3.30, "iowait": 4.40, "steal": 5.50, "irq": 0.00, "soft": 0.00, "guest": 0.00, "gnice": 0.00, "idle": 100.00}
 					],
-					"memory": {"memfree": 3017132, "memused": 864608, "memused-percent": 22.27, "buffers": 2600, "cached": 658784, "commit": 458700, "commit-percent": 11.82, "active": 448416, "inactive": 248108, "dirty": 24}
+					"memory": {"memfree": 4017132, "memused": 964608, "memused-percent": 32.27, "buffers": 3600, "cached": 758784, "commit": 458700, "commit-percent": 11.82, "active": 448416, "inactive": 248108, "dirty": 24}
 				}
 			],
 			"restarts": [
