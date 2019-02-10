@@ -68,3 +68,14 @@ https://qiita.com/hana_shin/items/4aeca4c52493bfe2832c
 
 優先度低いTODO
 - 期待したjsonの形でないときや、そもそもファイル形式が違うときどうするのか
+- indexedbがnodejsだとアクセスできなくてテストがwarn吐いてる
+
+# table style
+
+- 全体
+  - 真ん中によせる
+- 詳細
+  - 文字を大きく
+  - 文字の色
+  - 文字の左よせ
+  - onhover

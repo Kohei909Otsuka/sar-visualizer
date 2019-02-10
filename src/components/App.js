@@ -12,7 +12,7 @@ import {
 
 
 const StyledBody = styled.div`
-  margin: 0px 10px;
+  margin: 30px 10px;
 `;
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         setStats(stats.map(stat => ({
           id: stat.id,
           nodename: stat.nodename,
-          system: stat.system,
+          sysname: stat.sysname,
           release: stat.release,
           machine: stat.machine,
           number_of_cpus: stat.number_of_cpus,
