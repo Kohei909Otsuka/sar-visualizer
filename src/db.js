@@ -7,10 +7,9 @@ db.version(1).stores({
     stats: `id`
 });
 
-const seedCpus = (count) => {
-  const now = new Date();
+const seedCpus = (count, baseTime) => {
   return Array(count).fill().map((x,i) => {
-    const time  = new Date((now.getTime() + (i+1) * 60 * 1000));
+    const time  = new Date((baseTime.getTime() + (i+1) * 60 * 1000));
 
     return {
       timestamp: formatDate(time),
@@ -21,11 +20,30 @@ const seedCpus = (count) => {
       steal: Math.floor(100 * Math.random()),
       idle: Math.floor(100 * Math.random()),
     };
-  })
+  });
+};
+
+const seedMems = (count, baseTime) => {
+  return Array(count).fill().map((x,i) => {
+    const time  = new Date((baseTime.getTime() + (i+1) * 60 * 1000));
+    const max = 10000;
+    const min = 500;
+
+    return {
+      timestamp: formatDate(time),
+      free: Math.floor(Math.random() * (max - min)) + min,
+      used: Math.floor(Math.random() * (max - min)) + min,
+      used_percent: Math.floor(100* Math.random()),
+      buffers: Math.floor(100* Math.random()),
+      cached: Math.floor(1000* Math.random()),
+    };
+  });
 };
 
 // import seed data
 db.on('populate', () =>{
+  const now = new Date();
+
   db.stats.add({
     id: 1,
     nodename: 'localhost',
@@ -36,7 +54,8 @@ db.on('populate', () =>{
     file_date: '2019-02-09',
     file: 'cpu_test.json',
     statistics: {
-      cpu: seedCpus(50)
+      cpu: seedCpus(50, now),
+      memory: seedMems(50, now),
     }
   });
   db.stats.add({
@@ -49,7 +68,8 @@ db.on('populate', () =>{
     file_date: '2019-02-10',
     file: 'cpu_test2.json',
     statistics: {
-      cpu: seedCpus(50)
+      cpu: seedCpus(50, now),
+      memory: seedMems(50, now),
     }
   });
   db.stats.add({
@@ -62,7 +82,8 @@ db.on('populate', () =>{
     file_date: '2019-02-11',
     file: 'cpu_test3.json',
     statistics: {
-      cpu: seedCpus(50)
+      cpu: seedCpus(50, now),
+      memory: seedMems(50, now),
     }
   });
 });
