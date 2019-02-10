@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { solarized } from './constant.js';
+import { solarized } from './../utils/constant.js';
 
 const StyledHeader = styled.div`
   width: 100%;

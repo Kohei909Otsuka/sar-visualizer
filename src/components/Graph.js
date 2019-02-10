@@ -7,7 +7,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import { solarized } from './constant';
+import { solarized } from './../utils/constant.js';
 
 const dummy = [
   {

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Dropzone from 'react-dropzone';
-import { solarized } from './constant';
-import jsonFileParser from './jsonFileParser';
+import { solarized } from './../utils/constant.js';
+import jsonFileParser from './../libs/jsonFileParser';
 
 const Wrapper = styled.div`
   // ここはそとでいいのでは?
