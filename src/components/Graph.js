@@ -56,6 +56,7 @@ const Graph = (props) => {
                 type="monotone"
                 dataKey={kind}
                 stroke={color}
+                dot={false}
               />
             );
           })
