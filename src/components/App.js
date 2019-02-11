@@ -42,7 +42,7 @@ const App = () => {
           file: stat.file,
         })))
       )
-  })
+  }, [])
 
   const onSelectStat = (id) => {
     fetchStat(id)
